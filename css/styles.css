@@ -257,6 +257,38 @@ select {
   font-size: 1.45rem;
 }
 
+.race-video-section {
+  padding-top: 0;
+}
+
+.race-video-header {
+  margin-bottom: 22px;
+}
+
+.race-video-frame {
+  position: relative;
+  overflow: hidden;
+  width: min(860px, 100%);
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 47, 63, 0.12), rgba(31, 182, 255, 0.1)),
+    #0c111a;
+  box-shadow: var(--shadow);
+}
+
+.race-video-frame video,
+.race-video-frame iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  object-fit: cover;
+  background: #000000;
+}
+
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -480,6 +512,12 @@ select {
 }
 
 @media (max-width: 900px) {
+  .navbar,
+  .section,
+  .footer-content {
+    width: min(720px, calc(100% - 24px));
+  }
+
   .menu-button {
     display: block;
   }
@@ -513,6 +551,15 @@ select {
     grid-template-columns: 1fr;
   }
 
+  .hero {
+    min-height: auto;
+    gap: 28px;
+  }
+
+  .race-video-frame {
+    width: 100%;
+  }
+
   .dashboard-title {
     align-items: flex-start;
     flex-direction: column;
@@ -520,16 +567,116 @@ select {
 }
 
 @media (max-width: 540px) {
+  .navbar {
+    min-height: 64px;
+  }
+
+  .brand {
+    font-size: 0.95rem;
+  }
+
+  .brand-mark {
+    width: 24px;
+    height: 24px;
+  }
+
+  .nav-links {
+    top: 64px;
+    left: 12px;
+    right: 12px;
+  }
+
   .section {
-    padding: 48px 0;
+    padding: 42px 0;
+  }
+
+  .hero {
+    padding-top: 36px;
+    gap: 22px;
+  }
+
+  .hero h1,
+  .section-title {
+    font-size: 2.2rem;
+    line-height: 1.05;
+  }
+
+  .hero p,
+  .section-intro {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .board-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .board-number {
+    font-size: 1.25rem;
+  }
+
+  .race-video-section {
+    padding-top: 0;
+  }
+
+  .race-video-header {
+    margin-bottom: 16px;
+  }
+
+  .race-video-frame {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32);
+  }
+
+  .feature-card,
+  .moto-content {
+    padding: 16px;
+  }
+
+  .dashboard-title {
+    gap: 14px;
+  }
+
+  .counter {
+    width: 100%;
   }
 
   .controls {
     align-items: stretch;
+    padding: 12px;
   }
 
   .search-input,
   .select-input {
     width: 100%;
+    flex-basis: auto;
+  }
+
+  .moto-card:hover {
+    transform: none;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    padding: 22px 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero h1,
+  .section-title {
+    font-size: 1.95rem;
+  }
+
+  .dashboard-title h1 {
+    font-size: 1.9rem;
   }
 }

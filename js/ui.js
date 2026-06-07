@@ -45,6 +45,8 @@ export function renderHome() {
       </aside>
     </section>
 
+    ${crearSeccionVideo()}
+
     ${crearFeatures()}
   `;
 }
@@ -167,6 +169,28 @@ function crearFeatures() {
   `;
 }
 
+function crearSeccionVideo() {
+  return `
+    <section class="section race-video-section">
+      <div class="race-video-header">
+        <span class="eyebrow">Carrera en accion</span>
+        <h2 class="section-title">Vive el ritmo de MotoGP</h2>
+        <p class="section-intro">
+          Un vistazo visual al ambiente competitivo que inspira este catalogo.
+        </p>
+      </div>
+
+      <div class="race-video-frame">
+        <iframe
+          src="https://www.youtube.com/embed/AB-x-nh5zZQ"
+          title="Video carrera MotoGP"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+  `;
+}
 
 function pintarCards(contenedor, motos) {
   if (motos.length === 0) {
