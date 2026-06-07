@@ -27,6 +27,13 @@ body {
     radial-gradient(circle at top left, rgba(255, 47, 63, 0.18), transparent 32rem),
     radial-gradient(circle at top right, rgba(31, 182, 255, 0.14), transparent 30rem),
     var(--bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#app {
+  flex: 1;
 }
 
 a {

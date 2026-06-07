@@ -1,5 +1,4 @@
-import { buscarMotosLineal } from "./search.js";
-import { ordenarMotosBurbuja } from "./sort.js";
+import { CatalogStore } from "./CatalogStore.js";
 
 const app = document.querySelector("#app");
 const CLAVE_BUSQUEDA = "motogpUltimaBusqueda";
@@ -47,20 +46,23 @@ export function renderHome() {
     </section>
 
     ${crearFeatures()}
-    ${crearFooter()}
   `;
 }
 
 export function renderFeatures() {
   app.innerHTML = `
     ${crearFeatures()}
-    ${crearFooter()}
   `;
 }
 
-export function renderDashboard(motos) {
+export function renderDashboard() {
+  const store = CatalogStore.getInstancia();
+
   const busquedaGuardada = localStorage.getItem(CLAVE_BUSQUEDA) || "";
   const ordenGuardado = localStorage.getItem(CLAVE_ORDEN) || "anio-desc";
+
+  store.setBusqueda(busquedaGuardada);
+  store.setOrden(ordenGuardado);
 
   app.innerHTML = `
     <section class="section">
@@ -99,24 +101,29 @@ export function renderDashboard(motos) {
   const cardsContainer = document.querySelector("#cardsContainer");
   const counter = document.querySelector("#counter");
 
-  function actualizarDashboard() {
-    const textoBusqueda = searchInput.value;
-    const orden = sortSelect.value;
+  // Registrar el observador
+  const observer = {
+    update: () => {
+      const motosOrdenadas = store.motosFiltradasYOrdenadas;
+      counter.textContent = `${motosOrdenadas.length} motos`;
+      pintarCards(cardsContainer, motosOrdenadas);
+    }
+  };
 
-    localStorage.setItem(CLAVE_BUSQUEDA, textoBusqueda);
-    localStorage.setItem(CLAVE_ORDEN, orden);
+  store.subscribe(observer);
 
-    const motosFiltradas = buscarMotosLineal(motos, textoBusqueda);
-    const motosOrdenadas = ordenarMotosBurbuja(motosFiltradas, orden);
+  searchInput.addEventListener("input", () => {
+    localStorage.setItem(CLAVE_BUSQUEDA, searchInput.value);
+    store.setBusqueda(searchInput.value);
+  });
 
-    counter.textContent = `${motosOrdenadas.length} motos`;
-    pintarCards(cardsContainer, motosOrdenadas);
-  }
+  sortSelect.addEventListener("change", () => {
+    localStorage.setItem(CLAVE_ORDEN, sortSelect.value);
+    store.setOrden(sortSelect.value);
+  });
 
-  searchInput.addEventListener("input", actualizarDashboard);
-  sortSelect.addEventListener("change", actualizarDashboard);
-
-  actualizarDashboard();
+  // Renderizado inicial
+  observer.update();
 }
 
 export function renderError(mensaje) {
@@ -160,16 +167,6 @@ function crearFeatures() {
   `;
 }
 
-function crearFooter() {
-  return `
-    <footer class="footer">
-      <div class="footer-content">
-        <span>Proyecto MotoGP Catalog</span>
-        <span>Erickson Sojo, Jose Perea, Ashley Ruiz, Andres Soto</span>
-      </div>
-    </footer>
-  `;
-}
 
 function pintarCards(contenedor, motos) {
   if (motos.length === 0) {

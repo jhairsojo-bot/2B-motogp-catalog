@@ -1,15 +1,20 @@
-import { obtenerMotos } from "./dataService.js";
+import { DataAdapter } from "./DataAdapter.js";
+import { MotoFactory } from "./MotoFactory.js";
+import { CatalogStore } from "./CatalogStore.js";
 import { renderDashboard, renderError, renderFeatures, renderHome } from "./ui.js";
 
 const navLinks = document.querySelectorAll(".nav-link");
 const navLinksContainer = document.querySelector("#navLinks");
 const menuButton = document.querySelector("#menuButton");
 
-let motos = [];
+const dataAdapter = new DataAdapter("./data/data.json");
+const store = CatalogStore.getInstancia();
 
 async function iniciarAplicacion() {
   try {
-    motos = await obtenerMotos();
+    const datosRaw = await dataAdapter.obtenerDatos();
+    const motos = MotoFactory.crearMotos(datosRaw);
+    store.cargarMotos(motos);
     navegar();
   } catch (error) {
     renderError(error.message);
@@ -17,12 +22,15 @@ async function iniciarAplicacion() {
 }
 
 function navegar() {
+  // Limpiar observadores al cambiar de vista en la SPA
+  store.limpiarObservadores();
+
   const ruta = obtenerRuta();
 
   actualizarNavbar(ruta);
 
   if (ruta === "dashboard") {
-    renderDashboard(motos);
+    renderDashboard();
     return;
   }
 
