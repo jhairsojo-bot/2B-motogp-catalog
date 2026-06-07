@@ -185,6 +185,12 @@ select {
   border: 1px solid transparent;
   font-weight: 800;
   cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+}
+
+.hero-actions .button:active {
+  animation: button-press 260ms ease;
+  transform: translateY(2px) scale(0.96);
 }
 
 .button-primary {
@@ -197,6 +203,23 @@ select {
   color: var(--text);
   border-color: var(--line);
   background: rgba(255, 255, 255, 0.04);
+}
+
+@keyframes button-press {
+  0% {
+    transform: translateY(0) scale(1);
+    filter: brightness(1);
+  }
+
+  45% {
+    transform: translateY(2px) scale(0.96);
+    filter: brightness(1.18);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    filter: brightness(1);
+  }
 }
 
 .hero-board {
