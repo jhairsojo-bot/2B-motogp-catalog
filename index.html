@@ -1,42 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MotoGP Livery Catalog</title>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <header class="header">
-    <nav class="navbar">
-      <a href="#home" class="brand" data-route="home">
-        <span class="brand-mark"></span>
-        MotoGP Catalog
-      </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MotoGP Livery Catalog</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <a href="#home" class="brand" data-route="home">
+          <span class="brand-mark"></span>
+          MotoGP Catalog
+        </a>
 
-      <button class="menu-button" id="menuButton" aria-label="Abrir menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+        <button class="menu-button" id="menuButton" aria-label="Abrir menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home" class="nav-link active" data-route="home">Home</a></li>
-        <li><a href="#features" class="nav-link" data-route="features">Features</a></li>
-        <li><a href="#dashboard" class="nav-link" data-route="dashboard">Dashboard</a></li>
-      </ul>
-    </nav>
-  </header>
+        <ul class="nav-links" id="navLinks">
+          <li>
+            <a href="#home" class="nav-link active" data-route="home">Home</a>
+          </li>
+          <li>
+            <a href="#features" class="nav-link" data-route="features"
+              >Features</a
+            >
+          </li>
+          <li>
+            <a href="#dashboard" class="nav-link" data-route="dashboard"
+              >Dashboard</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-  <main id="app"></main>
+    <main id="app"></main>
 
-  <footer class="footer">
-    <div class="footer-content">
-      <span>Proyecto MotoGP Catalog</span>
-      <span>Erickson Sojo, Jose Perea, Ashley Ruiz, Andres Soto</span>
-    </div>
-  </footer>
+    <footer class="footer">
+      <div class="footer-content">
+        <span>Proyecto MotoGP Catalog</span>
+        <span>Erickson Sojo, Jose Perea, Ashley Ruiz, Andres Soto</span>
+      </div>
+    </footer>
 
-  <script type="module" src="js/main.js"></script>
-</body>
+    <script type="module" src="js/main.js"></script>
+  </body>
 </html>
