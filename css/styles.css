@@ -730,8 +730,7 @@ select {
   }
 
   .counter {
-    width: auto;
-    align-self: flex-start;
+    width: 100%;
   }
 
   .controls {
