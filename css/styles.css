@@ -683,8 +683,25 @@ select {
   }
 
   .board-row {
-    grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 6px 10px;
+  }
+
+  .board-row > div {
+    display: contents;
+  }
+
+  .board-row strong {
+    grid-column: 1 / -1;
+  }
+
+  .board-row span {
+    grid-column: 1;
+  }
+
+  .board-number {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: right;
   }
 
   .board-number {
@@ -713,7 +730,8 @@ select {
   }
 
   .counter {
-    width: 100%;
+    width: auto;
+    align-self: flex-start;
   }
 
   .controls {
