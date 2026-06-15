@@ -1,3 +1,6 @@
 *.log
 node_modules/
 videos/*.mp4
+guia.md
+skills-lock.json
+.agents/

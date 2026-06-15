@@ -107,7 +107,7 @@ export function renderDashboard() {
   const observer = {
     update: () => {
       const motosOrdenadas = store.motosFiltradasYOrdenadas;
-      counter.textContent = `${motosOrdenadas.length} motos`;
+      counter.innerHTML = `<span class="counter-value">${motosOrdenadas.length}</span><span class="counter-label">motos</span>`;
       pintarCards(cardsContainer, motosOrdenadas);
     }
   };
@@ -148,19 +148,16 @@ function crearFeatures() {
 
       <div class="features-grid">
         <article class="feature-card">
-          <div class="feature-icon"></div>
           <h3>Experiencia Fluida</h3>
           <p>Navegación instantánea entre escuderías mediante arquitectura SPA, permitiendo comparar datos sin tiempos de espera.</p>
         </article>
         
         <article class="feature-card">
-          <div class="feature-icon">📊</div>
           <h3>Datos de Ingeniería</h3>
           <p>Fichas técnicas dinámicas cargadas en tiempo real para visualizar la potencia y aerodinámica de cada prototipo.</p>
         </article>
         
         <article class="feature-card">
-          <div class="feature-icon">🔍</div>
           <h3>Análisis Comparativo</h3>
           <p>Utiliza algoritmos de ordenamiento para clasificar las motos por velocidad punta o año de evolución técnica.</p>
         </article>

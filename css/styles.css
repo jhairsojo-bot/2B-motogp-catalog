@@ -9,6 +9,8 @@
   --orange: #ff8a1f;
   --blue: #1fb6ff;
   --shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
+  --font-display: 'Racing Sans One', sans-serif;
+  --font-body: 'Inter', sans-serif;
 }
 
 * {
@@ -21,7 +23,7 @@ html {
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
   color: var(--text);
   background:
     radial-gradient(circle at top left, rgba(255, 47, 63, 0.18), transparent 32rem),
@@ -70,8 +72,10 @@ select {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-weight: 800;
-  letter-spacing: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  font-size: 1.15rem;
 }
 
 .brand-mark {
@@ -137,6 +141,7 @@ select {
   grid-template-columns: 1.08fr 0.92fr;
   gap: 34px;
   align-items: center;
+  padding-top: 80px;
 }
 
 .eyebrow {
@@ -156,8 +161,11 @@ select {
 .hero h1,
 .section-title {
   margin: 0 0 16px;
+  font-family: var(--font-body);
+  font-weight: 800;
   font-size: clamp(2.2rem, 6vw, 4.8rem);
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .hero p,
@@ -203,6 +211,19 @@ select {
   color: var(--text);
   border-color: var(--line);
   background: rgba(255, 255, 255, 0.04);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#app > section {
+  animation: fade-in 200ms ease;
+}
+
+#features.section {
+  padding: 64px 0;
 }
 
 @keyframes button-press {
@@ -252,9 +273,10 @@ select {
 }
 
 .board-number {
+  font-family: var(--font-display);
   color: var(--blue);
-  font-weight: 900;
-  font-size: 1.45rem;
+  font-weight: 400;
+  font-size: 1.6rem;
 }
 
 .race-video-section {
@@ -307,6 +329,16 @@ select {
   padding: 22px;
 }
 
+.feature-card::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 3px;
+  margin-bottom: 14px;
+  background: linear-gradient(90deg, var(--red), var(--orange));
+  border-radius: 2px;
+}
+
 .feature-card h3 {
   margin: 0 0 10px;
 }
@@ -336,14 +368,30 @@ select {
 }
 
 .counter {
-  min-width: 130px;
-  padding: 12px 14px;
+  min-width: 120px;
+  padding: 8px 16px;
   border: 1px solid rgba(31, 182, 255, 0.32);
   border-radius: 8px;
   color: #d8f3ff;
   background: rgba(31, 182, 255, 0.08);
   text-align: center;
-  font-weight: 800;
+}
+
+.counter-value {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.counter-label {
+  display: block;
+  font-size: 0.65rem;
+  color: rgba(216, 243, 255, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 1px;
 }
 
 .controls {
@@ -390,14 +438,30 @@ select {
 }
 
 .moto-card {
+  position: relative;
   overflow: hidden;
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
+.moto-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--red), transparent);
+  transition: right 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
 .moto-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  border-color: rgba(255, 47, 63, 0.6);
-  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.45);
+  transform: translateY(-3px);
+  border-color: rgba(255, 47, 63, 0.4);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.moto-card:hover::before {
+  right: 0;
 }
 
 .moto-image-box {
@@ -460,9 +524,10 @@ select {
   min-height: 28px;
   padding: 0 10px;
   border-radius: 999px;
+  font-family: var(--font-display);
   color: #ffe7d1;
   background: rgba(255, 138, 31, 0.16);
-  font-weight: 800;
+  font-weight: 400;
 }
 
 .moto-info {
@@ -474,8 +539,10 @@ select {
 }
 
 .speed {
+  font-family: var(--font-display);
   color: #d8f3ff;
-  font-weight: 800;
+  font-weight: 400;
+  font-size: 1.1rem;
 }
 
 .empty-message,
