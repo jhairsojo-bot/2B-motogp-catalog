@@ -1,56 +1,102 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MotoGP Livery Catalog</title>
-    <link rel="icon" type="image/png" href="images/favicon_redondeado_transparente.ico" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <header class="header">
-      <nav class="navbar">
-        <a href="#home" class="brand" data-route="home">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MotoGP Livery Catalog</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="icon" type="image/png" href="images/favicon_redondeado_transparente.ico" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Inter:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <a href="#home" class="brand" data-route="home">
+        <span class="brand-mark"></span>
+        MotoGP Catalog
+      </a>
+
+      <button class="menu-button" id="menuButton" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li>
+          <a href="#home" class="nav-link active" data-route="home">Home</a>
+        </li>
+        <li>
+          <a href="#features" class="nav-link" data-route="features">Features</a>
+        </li>
+        <li>
+          <a href="#dashboard" class="nav-link" data-route="dashboard">Dashboard</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="app"></main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#home" class="footer-logo" data-route="home">
           <span class="brand-mark"></span>
           MotoGP Catalog
         </a>
-
-        <button class="menu-button" id="menuButton" aria-label="Abrir menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <ul class="nav-links" id="navLinks">
-          <li>
-            <a href="#home" class="nav-link active" data-route="home">Home</a>
-          </li>
-          <li>
-            <a href="#features" class="nav-link" data-route="features"
-              >Features</a
-            >
-          </li>
-          <li>
-            <a href="#dashboard" class="nav-link" data-route="dashboard"
-              >Dashboard</a
-            >
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-    <main id="app"></main>
-
-    <footer class="footer">
-      <div class="footer-content">
-        <span>Proyecto MotoGP Catalog</span>
-        <span>Erickson Sojo, Jose Perea, Ashley Ruiz, Andres Soto</span>
+        <p class="footer-desc">
+          Explorando el rendimiento de MotoGP a través de datos, velocidad y tecnología.
+        </p>
       </div>
-    </footer>
 
-    <script type="module" src="js/main.js"></script>
-  </body>
+      <div class="footer-links">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#home" data-route="home">Home</a></li>
+          <li><a href="#features" data-route="features">Features</a></li>
+          <li><a href="#dashboard" data-route="dashboard">Dashboard</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h4>Conéctate</h4>
+        <div class="social-icons">
+          <a href="https://github.com/jhairsojo-bot" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/jhairsojo16/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.instagram.com/erickx_10?igsh=NWoyd2lnb2d4Nnc3" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-team">
+        <h4>Equipo</h4>
+        <ul>
+          <li>Erick Sojo</li>
+          <li>Andres Soto</li>
+          <li>Ashlye Ruiz</li>
+          <li>Jose Perea</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 MotoGP Catalog &middot; Software Engineering</span>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+
 </html>
