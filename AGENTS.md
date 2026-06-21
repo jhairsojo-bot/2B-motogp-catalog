@@ -7,10 +7,15 @@ Vanilla JS SPA — MotoGP prototype bike catalog. No bundler, no framework, no p
 ## Quick start
 
 ```bash
-node server.js          # serves on http://localhost:5500
-```
+# Opcion 1: VS Code Live Server (recomendado)
+# Click derecho en index.html → "Open with Live Server"
 
-No `npm install` needed. The server is a zero-dependency Node.js static file server (path traversal guarded).
+# Opcion 2: Python
+python -m http.server 5500
+
+# Opcion 3: Node (si lo tenes instalado)
+npx serve
+```
 
 ## Architecture
 
